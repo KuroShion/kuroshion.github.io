@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome to My GitHub Pages</title>
   <style>
     body {
@@ -15,17 +15,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden; /* ✅ allows scrolling vertically */
     }
+
     .bg-animated {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: 0;
       pointer-events: none;
       opacity: 1;
+      overflow: hidden;
     }
+
     nav {
       width: 100%;
       background: rgba(24,25,32,0.97);
@@ -37,6 +40,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.18);
       backdrop-filter: blur(4px);
     }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -44,9 +48,11 @@
       margin: 0;
       padding: 0;
     }
+
     nav ul li {
       margin: 0 1.5em;
     }
+
     nav ul li a {
       color: #e0e6f0;
       text-decoration: none;
@@ -54,19 +60,23 @@
       font-size: 1.1em;
       transition: color 0.2s;
     }
+
     nav ul li a:hover {
       color: #00ffc3;
       text-shadow: 0 0 8px #00ffc3cc;
     }
+
     .main-content {
-      margin-top: 5.5em;
+      margin-top: 6em;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 1;
       position: relative;
+      padding-bottom: 4em;
     }
+
     .container {
       background: rgba(24,25,32,0.93);
       padding: 2rem 3rem;
@@ -79,9 +89,11 @@
       z-index: 1;
       border: 1px solid #222;
     }
+
     .intro {
       margin-bottom: 2em;
     }
+
     .linktree {
       display: flex;
       flex-direction: column;
@@ -89,6 +101,7 @@
       align-items: center;
       margin-bottom: 2em;
     }
+
     .linktree a {
       width: 260px;
       padding: 1em 0;
@@ -103,6 +116,7 @@
       transition: background 0.2s, color 0.2s, transform 0.2s;
       letter-spacing: 0.5px;
     }
+
     .linktree a:hover {
       background: #0f1014;
       color: #fff;
@@ -110,6 +124,7 @@
       transform: translateY(-2px) scale(1.03);
       text-shadow: 0 0 8px #00ffc3cc;
     }
+
     h1 {
       color: #00ffc3;
       margin-bottom: 0.5em;
@@ -117,6 +132,7 @@
       letter-spacing: 1px;
       text-shadow: 0 0 12px #00ffc355;
     }
+
     h2 {
       color: #e0e6f0;
       margin-bottom: 0.5em;
@@ -125,11 +141,13 @@
       display: inline-block;
       padding-bottom: 0.2em;
     }
+
     p {
       font-size: 1.15em;
       margin-bottom: 1.5em;
       color: #b2b8c6;
     }
+
     footer {
       margin-top: 2em;
       color: #555;
@@ -137,6 +155,7 @@
       z-index: 1;
       position: relative;
     }
+
     @media (max-width: 600px) {
       .container {
         padding: 1.2rem 0.7rem;
@@ -158,7 +177,7 @@
       const canvas = document.createElement('canvas');
       canvas.style.width = '100vw';
       canvas.style.height = '100vh';
-      canvas.style.position = 'absolute';
+      canvas.style.position = 'fixed'; // ✅ fixed to avoid scroll issues
       canvas.style.top = 0;
       canvas.style.left = 0;
       canvas.style.zIndex = 0;
@@ -175,7 +194,6 @@
         canvas.width = w;
         canvas.height = h;
       });
-      // Ninja particles
       const particles = Array.from({length: 32}, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -225,7 +243,6 @@
     <div class="container linktree" id="links">
       <a href="https://github.com/KuroShion" target="_blank">GitHub</a>
       <a href="mailto:shawnchongjunzhi@gmail.com">Email Me</a>
-      <!-- Add more links as needed -->
     </div>
     <div class="container" id="about">
       <h2>About Me</h2>
