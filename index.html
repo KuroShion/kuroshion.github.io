@@ -7,8 +7,8 @@
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6fb;
-      color: #222;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f4f6fb;
       margin: 0;
       padding: 0;
       min-height: 100vh;
@@ -16,16 +16,35 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Dynamic animated background */
+    .bg-animated {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 30%, #2d72d9 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, #7f53ac 0%, transparent 60%),
+                  radial-gradient(circle at 50% 90%, #232526 0%, transparent 70%);
+      animation: moveBg 12s linear infinite alternate;
+      opacity: 0.5;
+    }
+    @keyframes moveBg {
+      0% { background-position: 20% 30%, 80% 70%, 50% 90%; }
+      100% { background-position: 30% 40%, 70% 60%, 60% 80%; }
     }
     nav {
       width: 100%;
-      background: #2d72d9;
+      background: rgba(35,37,38,0.95);
       padding: 0.5em 0;
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      backdrop-filter: blur(4px);
     }
     nav ul {
       list-style: none;
@@ -38,31 +57,35 @@
       margin: 0 1.5em;
     }
     nav ul li a {
-      color: #fff;
+      color: #f4f6fb;
       text-decoration: none;
       font-weight: 500;
       font-size: 1.1em;
       transition: color 0.2s;
     }
     nav ul li a:hover {
-      color: #cbe1ff;
+      color: #7f53ac;
     }
     .main-content {
-      margin-top: 4.5em;
+      margin-top: 5.5em;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      z-index: 1;
+      position: relative;
     }
     .container {
-      background: #fff;
+      background: rgba(35,37,38,0.92);
       padding: 2rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
       text-align: center;
       margin-bottom: 2em;
       max-width: 500px;
       width: 90%;
+      z-index: 1;
+      border: 1px solid #2d72d9;
     }
     .intro {
       margin-bottom: 2em;
@@ -77,39 +100,60 @@
     .linktree a {
       width: 260px;
       padding: 1em 0;
-      background: #fff;
-      color: #2d72d9;
-      border: 2px solid #2d72d9;
-      border-radius: 8px;
+      background: linear-gradient(90deg, #2d72d9 0%, #7f53ac 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
       text-decoration: none;
       font-size: 1.1em;
-      font-weight: 500;
-      transition: background 0.2s, color 0.2s;
+      font-weight: 600;
+      box-shadow: 0 2px 12px rgba(45,114,217,0.12);
+      transition: background 0.2s, transform 0.2s;
+      letter-spacing: 0.5px;
     }
     .linktree a:hover {
-      background: #2d72d9;
-      color: #fff;
+      background: linear-gradient(90deg, #7f53ac 0%, #2d72d9 100%);
+      transform: translateY(-2px) scale(1.03);
     }
     h1 {
-      color: #2d72d9;
+      color: #7f53ac;
       margin-bottom: 0.5em;
+      font-size: 2.3em;
+      letter-spacing: 1px;
     }
     h2 {
       color: #2d72d9;
       margin-bottom: 0.5em;
+      font-size: 1.5em;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.15em;
       margin-bottom: 1.5em;
+      color: #e0e6f0;
     }
     footer {
       margin-top: 2em;
-      color: #888;
-      font-size: 0.9em;
+      color: #aaa;
+      font-size: 0.95em;
+      z-index: 1;
+      position: relative;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.2rem 0.7rem;
+      }
+      nav ul li {
+        margin: 0 0.7em;
+      }
+      .linktree a {
+        width: 98%;
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="bg-animated"></div>
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -121,20 +165,20 @@
   <div class="main-content">
     <div class="container intro" id="home">
       <h1>Kuro Shion</h1>
-      <p>Hello! I'm Kuro Shion, a passionate developer and technology enthusiast. Welcome to my personal site! Here you can find my projects, social links, and ways to connect with me.</p>
+      <p>Hello! I'm Kuro Shion, a passionate developer and technology enthusiast. Welcome to my professional portfolio site. Here you can find my projects, skills, and ways to connect with me.</p>
     </div>
     <div class="container linktree" id="links">
       <a href="https://github.com/KuroShion" target="_blank">GitHub</a>
-      <a href="mailto:SHAWNCHONGJUNZHI@GMAIL.COM">Email Me</a>
+      <a href="mailto:shawnchongjunzhi@gmail.com">Email Me</a>
       <!-- Add more links as needed -->
     </div>
     <div class="container" id="about">
       <h2>About Me</h2>
-      <p>I'm a software developer with interests in web development, open source, and creative coding. I love building useful and beautiful things for the web.</p>
+      <p>I'm a software developer specializing in web development, open source, and creative coding. I enjoy building robust, scalable, and visually appealing web applications. My goal is to deliver high-quality solutions and continuously learn new technologies.</p>
     </div>
     <div class="container" id="contact">
       <h2>Contact</h2>
-      <p>Feel free to reach out via <a href="mailto:SHAWNCHONGJUNZHI@GMAIL.COM">email</a> or connect with me on social media!</p>
+      <p>Feel free to reach out via <a href="mailto:shawnchongjunzhi@gmail.com">email</a> or connect with me on social media!</p>
     </div>
   </div>
   <footer>
