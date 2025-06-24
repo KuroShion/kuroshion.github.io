@@ -6,77 +6,21 @@
   <title>Welcome to My GitHub Pages</title>
   <style>
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #181920 0%, #232526 100%);
+      background: #181920;
       color: #e0e6f0;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      overflow-x: hidden; /* ✅ allows scrolling vertically */
+      overflow-x: hidden;
     }
-
-    .bg-animated {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 1;
-      overflow: hidden;
-    }
-
-    nav {
-      width: 100%;
-      background: rgba(24,25,32,0.97);
-      padding: 0.5em 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      backdrop-filter: blur(4px);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 0 1.5em;
-    }
-
-    nav ul li a {
-      color: #e0e6f0;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1em;
-      transition: color 0.2s;
-    }
-
-    nav ul li a:hover {
-      color: #00ffc3;
-      text-shadow: 0 0 8px #00ffc3cc;
-    }
-
     .main-content {
       margin-top: 6em;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      z-index: 1;
       position: relative;
-      padding-bottom: 4em;
     }
-
     .container {
       background: rgba(24,25,32,0.93);
       padding: 2rem 3rem;
@@ -89,20 +33,9 @@
       z-index: 1;
       border: 1px solid #222;
     }
-
-    .intro {
-      margin-bottom: 2em;
-    }
-
-    .linktree {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      align-items: center;
-      margin-bottom: 2em;
-    }
-
     .linktree a {
+      display: block;
+      margin: 0.8em auto;
       width: 260px;
       padding: 1em 0;
       background: linear-gradient(90deg, #232526 0%, #181920 100%);
@@ -116,7 +49,6 @@
       transition: background 0.2s, color 0.2s, transform 0.2s;
       letter-spacing: 0.5px;
     }
-
     .linktree a:hover {
       background: #0f1014;
       color: #fff;
@@ -124,44 +56,27 @@
       transform: translateY(-2px) scale(1.03);
       text-shadow: 0 0 8px #00ffc3cc;
     }
-
     h1 {
       color: #00ffc3;
-      margin-bottom: 0.5em;
       font-size: 2.3em;
-      letter-spacing: 1px;
-      text-shadow: 0 0 12px #00ffc355;
+      margin-bottom: 0.5em;
     }
-
     h2 {
       color: #e0e6f0;
-      margin-bottom: 0.5em;
       font-size: 1.5em;
+      margin-bottom: 0.5em;
       border-bottom: 1px solid #222;
       display: inline-block;
       padding-bottom: 0.2em;
     }
-
     p {
       font-size: 1.15em;
       margin-bottom: 1.5em;
       color: #b2b8c6;
     }
-
-    footer {
-      margin-top: 2em;
-      color: #555;
-      font-size: 0.95em;
-      z-index: 1;
-      position: relative;
-    }
-
     @media (max-width: 600px) {
       .container {
         padding: 1.2rem 0.7rem;
-      }
-      nav ul li {
-        margin: 0 0.7em;
       }
       .linktree a {
         width: 98%;
@@ -169,72 +84,8 @@
       }
     }
   </style>
-  <script>
-    // Ninja-style animated particles
-    window.addEventListener('DOMContentLoaded', () => {
-      const bg = document.querySelector('.bg-animated');
-      if (!bg) return;
-      const canvas = document.createElement('canvas');
-      canvas.style.width = '100vw';
-      canvas.style.height = '100vh';
-      canvas.style.position = 'fixed'; // ✅ fixed to avoid scroll issues
-      canvas.style.top = 0;
-      canvas.style.left = 0;
-      canvas.style.zIndex = 0;
-      canvas.style.pointerEvents = 'none';
-      bg.appendChild(canvas);
-      const ctx = canvas.getContext('2d');
-      let w = window.innerWidth;
-      let h = window.innerHeight;
-      canvas.width = w;
-      canvas.height = h;
-      window.addEventListener('resize', () => {
-        w = window.innerWidth;
-        h = window.innerHeight;
-        canvas.width = w;
-        canvas.height = h;
-      });
-      const particles = Array.from({length: 32}, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: 1.5 + Math.random() * 2.5,
-        dx: (Math.random() - 0.5) * 0.7,
-        dy: (Math.random() - 0.5) * 0.7,
-        alpha: 0.3 + Math.random() * 0.5
-      }));
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        for (const p of particles) {
-          ctx.save();
-          ctx.globalAlpha = p.alpha;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
-          ctx.fillStyle = '#00ffc3';
-          ctx.shadowColor = '#00ffc3';
-          ctx.shadowBlur = 12;
-          ctx.fill();
-          ctx.restore();
-          p.x += p.dx;
-          p.y += p.dy;
-          if (p.x < 0 || p.x > w) p.dx *= -1;
-          if (p.y < 0 || p.y > h) p.dy *= -1;
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    });
-  </script>
 </head>
 <body>
-  <div class="bg-animated"></div>
-  <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="links.html">Links</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
   <div class="main-content">
     <div class="container intro" id="home">
       <h1>Kuro Shion</h1>
@@ -250,11 +101,18 @@
     </div>
     <div class="container" id="contact">
       <h2>Contact</h2>
-      <p>Feel free to reach out via <a href="mailto:shawnchongjunzhi@gmail.com">email</a> or connect with me on social media!</p>
+      <p>Feel free to reach out via <a href="mailto:shawnchongjunzhi@gmail.com" style="color:#00ffc3;">email</a> or connect with me on social media!</p>
     </div>
   </div>
-  <footer>
-    &copy; 2025 Kuro Shion
-  </footer>
+  <script>
+    fetch("common.html")
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        document.body.insertAdjacentElement("afterbegin", temp.querySelector("nav"));
+        document.body.insertAdjacentElement("beforeend", temp.querySelector("footer"));
+      });
+  </script>
 </body>
 </html>
