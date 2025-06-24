@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Links - Kuro Shion</title>
+  <style>
+    body {
+      background: #181920;
+      color: #e0e6f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      margin: 0;
+    }
+    main {
+      max-width: 800px;
+      margin: 6em auto 2em;
+    }
+    a {
+      display: block;
+      color: #00ffc3;
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 1em;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      color: #00ffc3;
+    }
+    footer {
+      text-align: center;
+      color: #888;
+      margin-top: 4em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>My Links</h1>
+    <a href="https://github.com/KuroShion" target="_blank">GitHub</a>
+    <a href="mailto:shawnchongjunzhi@gmail.com">Email Me</a>
+  </main>
+  <script>
+    fetch("common.html")
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        document.body.insertAdjacentElement("afterbegin", temp.querySelector("nav"));
+        document.body.insertAdjacentElement("beforeend", temp.querySelector("footer"));
+      });
+  </script>
+</body>
+</html>
