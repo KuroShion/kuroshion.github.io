@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About - Kuro Shion</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ...existing code... */
+  </style>
+  <script>
+    // ...existing code...
+  </script>
 </head>
 <body>
-  <main>
-    <h1>About Me</h1>
-    <p>I'm a web developer specializing in interactive front-end and clean responsive UI. I enjoy building web experiences that are fast and visually appealing.</p>
-  </main>
-  <script>
-    fetch("common.html")
-      .then(res => res.text())
-      .then(html => {
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        document.body.insertAdjacentElement("afterbegin", temp.querySelector("nav"));
-        document.body.insertAdjacentElement("beforeend", temp.querySelector("footer"));
-      });
-  </script>
+  <div class="bg-animated"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="links.html">Links</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <div class="container" id="about">
+      <h2>About Me</h2>
+      <p>Hi, I'm Kuro Shion. I have a deep passion for technology, coding, and creative problem-solving. My journey began with curiosity for how things work, and it has led me to become a developer who loves building web applications, exploring open source, and experimenting with new ideas.</p>
+      <p>My expertise includes JavaScript, Python, and modern web frameworks. I enjoy collaborating with others, contributing to the tech community, and constantly learning new skills. When I'm not coding, I enjoy digital art, gaming, and exploring new music.</p>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Kuro Shion
+  </footer>
 </body>
 </html>

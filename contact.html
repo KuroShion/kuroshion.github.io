@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | Kuro Shion</title>
+  <title>Contact - Kuro Shion</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -86,6 +87,13 @@
       letter-spacing: 1px;
       text-shadow: 0 0 12px #00ffc355;
     }
+    h2 {
+      color: #00ffc3;
+      margin-bottom: 0.5em;
+      font-size: 1.8em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #00ffc355;
+    }
     p {
       font-size: 1.15em;
       margin-bottom: 1.5em;
@@ -151,33 +159,6 @@
       }
     }
   </style>
-</head>
-<body>
-  <div class="bg-animated"></div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="main-content">
-    <div class="container">
-      <h1>Contact Kuro Shion</h1>
-      <p>Feel free to reach out using the form below or email me directly at <a href="mailto:shawnchongjunzhi@gmail.com" style="color:#00ffc3;">shawnchongjunzhi@gmail.com</a>.</p>
-      <form action="mailto:shawnchongjunzhi@gmail.com" method="POST" enctype="text/plain">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
-  <footer>
-    &copy; 2025 Kuro Shion
-  </footer>
   <script>
     // Ninja-style animated particles
     window.addEventListener('DOMContentLoaded', () => {
@@ -234,5 +215,31 @@
       draw();
     });
   </script>
+</head>
+<body>
+  <div class="bg-animated"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="links.html">Links</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <div class="container" id="contact">
+      <h2>Contact Me</h2>
+      <p>If you'd like to get in touch, feel free to send me an email or reach out on social media. I'm always open to discussing new projects, collaborations, or just chatting about tech!</p>
+      <ul style="list-style:none;padding:0;">
+        <li><strong>Email:</strong> <a href="mailto:shawnchongjunzhi@gmail.com">shawnchongjunzhi@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
+        <li><strong>Twitter:</strong> <a href="https://twitter.com/yourhandle" target="_blank">@yourhandle</a></li>
+      </ul>
+      <p style="color:#b2b8c6;">I'll do my best to respond promptly!</p>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Kuro Shion
+  </footer>
 </body>
 </html>

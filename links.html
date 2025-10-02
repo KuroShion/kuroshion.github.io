@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Links - Kuro Shion</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ...existing code... */
+  </style>
+  <script>
+    // ...existing code...
+  </script>
 </head>
 <body>
-  <main>
-    <h1>Useful Links</h1>
-    <a href="https://github.com/KuroShion" target="_blank">GitHub</a>
-    <a href="mailto:shawnchongjunzhi@gmail.com">Email Me</a>
-  </main>
-  <script>
-    fetch("common.html")
-      .then(res => res.text())
-      .then(html => {
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        document.body.insertAdjacentElement("afterbegin", temp.querySelector("nav"));
-        document.body.insertAdjacentElement("beforeend", temp.querySelector("footer"));
-      });
-  </script>
+  <div class="bg-animated"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="links.html">Links</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <div class="container linktree" id="links">
+      <h2>My Links</h2>
+      <a href="https://github.com/KuroShion" target="_blank">GitHub</a>
+      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="mailto:shawnchongjunzhi@gmail.com">Email Me</a>
+      <p style="margin-top:1.5em;color:#b2b8c6;">Connect with me on these platforms for updates, collaborations, or just to say hi!</p>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Kuro Shion
+  </footer>
 </body>
 </html>
